@@ -27,12 +27,13 @@ code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=9e4fedaa99
 access_code=$(curl -X POST https://github.com/login/oauth/access_token?client_id=9e4fedaa995f29228ee&client_secret=ef8c49d9267f66a2278a5007fc6d9ac5f2e605ce&code=$code)
 
 access_token=${access_code:13:40}
-echo $access_token
 response=$(curl -H "Authorization: token $access_token" -X POST https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches --data "$(getPayLoad)")
 
 if [ "$response" == "" ]; then
+    echo $access_token
     echo "Integration tests triggered successfully"
 else
+    echo $access_token
     echo "Triggering integration tests failed with: '$response'"
     exit 1
 fi
