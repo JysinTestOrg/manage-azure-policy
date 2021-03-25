@@ -30,10 +30,10 @@ access_token=${access_code:13:40}
 response=$(curl -H "Authorization: token $access_token" -X POST https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches --data "$(getPayLoad)")
 
 if [ "$response" == "" ]; then
-    echo $access_token
+    echo ${access_token}
     echo "Integration tests triggered successfully"
 else
-    echo $access_token
+    echo ${access_token}
     echo "Triggering integration tests failed with: '$response'"
     exit 1
 fi
