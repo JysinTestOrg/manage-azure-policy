@@ -38,8 +38,6 @@ else
     response=$(curl -H "Authorization: token $access_token" -X POST https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches --data "$(getPayLoad)")
 fi
 
-
-
 if [ "$response" == "" ]; then
     echo ${access_token}
     echo "Integration tests triggered successfully"
