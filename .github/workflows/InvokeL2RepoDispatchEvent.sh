@@ -22,7 +22,11 @@ getPayLoad() {
 EOF
 }
 
-response=$(curl -X POST -H josh-01:$token https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches --data "$(getPayLoad)")
+
+code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=9e4fedaa995f29228ee)
+access_code=$(curl -X POST https://github.com/login/oauth/access_token?client_id=9e4fedaa995f29228ee&client_secret=ef8c49d9267f66a2278a5007fc6d9ac5f2e605ce&code=$code)
+
+response=$(curl -X POST -H josh-01:$token https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches?$access_code --data "$(getPayLoad)")
 
 if [ "$response" == "" ]; then
     echo "Integration tests triggered successfully"
