@@ -23,7 +23,7 @@ EOF
 }
 
 code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=9e4fedaa995f29228ee)
-access_code=$(curl -H "Accept: application/json" -X POST https://github.com/login/oauth/access_token?client_id=9e4fedaa995f29228ee&client_secret=ef8c49d9267f66a2278a5007fc6d9ac5f2e605ce&code=$code)
+access_code=$(curl -X POST -H "Accept: application/json" https://github.com/login/oauth/access_token?client_id=9e4fedaa995f29228ee&client_secret=ef8c49d9267f66a2278a5007fc6d9ac5f2e605ce&code=$code)
 
 access_token=$access_code.access_token
 response=""
