@@ -22,8 +22,8 @@ getPayLoad() {
 EOF
 }
 
-code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=9e4fedaa995f29228ee)
-access_code=$(curl -X POST https://github.com/login/oauth/access_token?client_id=9e4fedaa995f29228ee&client_secret=89e17c5b8818a230ded361679f79b88bdac7a9bd&code=$code)
+code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=Iv1.bd3c1ac33bd049bb)
+access_code=$(curl -X POST https://github.com/login/oauth/access_token?client_id=Iv1.bd3c1ac33bd049bb&client_secret=7c4ee5d0f179629da3e7a52012abcb969ea08193&code=$code)
 
 access_token=${access_code:13:40}
 response=""
