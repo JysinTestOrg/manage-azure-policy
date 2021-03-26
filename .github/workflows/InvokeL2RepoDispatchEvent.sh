@@ -22,15 +22,15 @@ getPayLoad() {
 EOF
 }
 
-code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=bd3c1ac33bd049bb)
+code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=09e4fedaa995f29228ee)
 
 echo ${code}
 
 getCreds() {
 cat <<EOF
 {
-    "client_id": "bd3c1ac33bd049bb",
-    "client_secret": "7c4ee5d0f179629da3e7a52012abcb969ea08193",
+    "client_id": "09e4fedaa995f29228ee",
+    "client_secret": "ef8c49d9267f66a2278a5007fc6d9ac5f2e605ce",
     "code": "$code"
 }
 EOF
