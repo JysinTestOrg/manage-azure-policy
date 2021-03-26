@@ -30,7 +30,7 @@ getCreds() {
 cat <<EOF
 {
     "client_id": "09e4fedaa995f29228ee",
-    "client_secret": "ef8c49d9267f66a2278a5007fc6d9ac5f2e605ce",
+    "client_secret": "",
     "code": "$code"
 }
 EOF
