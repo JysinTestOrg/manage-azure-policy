@@ -27,9 +27,9 @@ code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=bd3c1ac33b
 getCreds() {
 cat <<EOF
 {
-    "client_id" : bd3c1ac33bd049bb,
-    "client_secret" : 7c4ee5d0f179629da3e7a52012abcb969ea08193,
-    "code: : ${code}
+    "client_id": "bd3c1ac33bd049bb",
+    "client_secret": "7c4ee5d0f179629da3e7a52012abcb969ea08193",
+    "code": "$code"
 }
 EOF
 }
