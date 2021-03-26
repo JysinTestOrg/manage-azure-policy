@@ -24,6 +24,8 @@ EOF
 
 code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=bd3c1ac33bd049bb)
 
+echo ${code}
+
 getCreds() {
 cat <<EOF
 {
@@ -39,14 +41,8 @@ access_code=$(curl -X POST https://github.com/login/oauth/access_token --data "$
 echo ${access_code}
 
 access_token=${access_code:13:40}
-response=""
 
-if [ "$access_code" == ""  ]; then
-    echo "access_code is empty"
-else
-    echo "access_code is not empty"
-    response=$(curl -H "Authorization: token $access_token" -X POST https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches --data "$(getPayLoad)")
-fi
+response=$(curl -H "Authorization: token $access_token" -X POST https://api.github.com/repos/Azure/azure-actions-integration-tests/dispatches --data "$(getPayLoad)")
 
 if [ "$response" == "" ]; then
     echo ${access_token}
