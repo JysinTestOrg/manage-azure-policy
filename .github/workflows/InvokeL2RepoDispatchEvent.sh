@@ -22,7 +22,7 @@ getPayLoad() {
 EOF
 }
 
-code=$(curl -X GET https://github.com/login/oauth/authorize?client_id=09e4fedaa995f29228ee)
+code=$(curl -X -L GET https://github.com/login/oauth/authorize?client_id=09e4fedaa995f29228ee)
 
 echo ${code}
 
